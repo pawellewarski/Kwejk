@@ -14,12 +14,7 @@ public class GifController {
         return "home";
     }
 
-    @RequestMapping("/gif")
-    public String gifDetails(ModelMap modelMap){
-        gif gif = new gif("domino","A",true);
-        modelMap.put("gif", gif);
-        return "gif-details";
-    }
+
 
 
 }
