@@ -7,30 +7,35 @@
     <title>giflib | Home</title>
 </head>
 <body>
-    <div class="navbar-fixed" th:replace="layout :: navigation">
+<div class="navbar-fixed" th:replace="layout :: navigation">
 
-    </div>
-    <div class="search-bar container">
-        <div class="row">
-            <div class="col s12">
-                <form action="/search" method="get">
-                    <div class="input-field">
-                        <input name="q" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
-                        <input type="submit" value="&#8981;">
-                    </div>
-                </form>
-            </div>
+</div>
+<div class="search-bar container">
+    <div class="row">
+        <div class="col s12">
+            <form action="/search" method="get">
+                <div class="input-field">
+                    <input name="q" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
+                    <input type="submit" value="&#8981;">
+                </div>
+            </form>
         </div>
     </div>
-    <div class="gifs container">
-        <p th:if="${comment}" th:text="${comment}"></p>
-        <div class="row">
-            
+</div>
+<div class="gifs container">
+    <p th:if="${comment}" th:text="${comment}"></p>
+    <div class="row">
+        <div th:each="gif : ${gifs}" class="col s12 l4">
+            <a th:href="@{'gif/' + ${gif.name}}">
+                <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}">
+                <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'">
+                </a>
+            </a>
         </div>
     </div>
 
-<section th:replace="layout :: scripts">
+    <section th:replace="layout :: scripts">
 
-</section>
+    </section>
 </body>
 </html>

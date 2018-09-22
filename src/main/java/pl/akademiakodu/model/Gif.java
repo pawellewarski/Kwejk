@@ -1,15 +1,17 @@
 package pl.akademiakodu.model;
 
-public class gif {
+public class Gif {
     private String name;
     private String username;
     private Boolean favorite;
 
-    public gif(String name, String username, Boolean favorite) {
+    public Gif(String name, String username, Boolean favorite) {
         this.name = name;
         this.username = username;
         this.favorite = favorite;
     }
+
+
 
     public String getName() {
         return name;
