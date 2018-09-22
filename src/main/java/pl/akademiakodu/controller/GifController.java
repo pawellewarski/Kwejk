@@ -13,5 +13,12 @@ public class GifController {
         return "home";
     }
 
+    @RequestMapping("/gif")
+    public String gifDetails(ModelMap modelmap){
+        gif gif = new gif("compiler-bot", "michalos", true);
+        modelmap.put("gif",gif);
+        return "gif-details";
+    }
+
 
 }
