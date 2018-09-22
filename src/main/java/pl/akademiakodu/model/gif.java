@@ -34,4 +34,6 @@ public class gif {
     public void setFavorite(Boolean favorite) {
         this.favorite = favorite;
     }
+
+    
 }
