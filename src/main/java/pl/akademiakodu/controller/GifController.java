@@ -17,22 +17,31 @@ public class GifController {
     GifRepository gifRepository;
 
     @RequestMapping("/")
-    public String listGifs(ModelMap modelMap){
+    public String listGifs(ModelMap modelMap) {
 
         List<Gif> gifs = gifRepository.getAllGifs();
-        modelMap.put("gifs",gifs);
+        modelMap.put("gifs", gifs);
         return "home";
     }
 
 
     @RequestMapping("/gif/{name}")
     public String gifDetails(@PathVariable String name,
-                             ModelMap modelmap){
+                             ModelMap modelmap) {
 //        Gif gif = new Gif("domino", "Meme Lord", true);
         Gif gif = gifRepository.findByName(name);
 
-        modelmap.put("gif",gif);
+        modelmap.put("gif", gif);
         return "gif-details";
+    }
+
+    @RequestMapping("/favorites")
+    public String gifFavorites(ModelMap modelMap) {
+
+        List<Gif> gifs = gifRepository.getFavoritiesGifs();
+        modelMap.put("gifs", gifs);
+
+        return "favorites";
     }
 
 
